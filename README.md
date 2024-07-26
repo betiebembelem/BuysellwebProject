@@ -7,7 +7,7 @@ BUYSELL - сайт для продажи вещей
 - Java
 - Spring (Spring MVC, Spring Security)
 - FreeMarker
-- База данных (какую используете, например, MySQL или H2)
+- SQL Server
 
 Что умеет:
 - Регистрация
