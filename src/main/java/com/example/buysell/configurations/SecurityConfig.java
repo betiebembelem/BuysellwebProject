@@ -16,6 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @AllArgsConstructor
 public class SecurityConfig {
     private final CustomUserDetailsService userDetailService;
+
     @Bean
     protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -32,26 +33,15 @@ public class SecurityConfig {
                 )
                 .logout((logout) -> logout.permitAll());
 
-
-
         return http.build();
-
     }
 
-
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-        auth.userDetailsService(userDetailService)
-
-                .passwordEncoder(passwordEncoder());
-
+        auth.userDetailsService(userDetailService).passwordEncoder(passwordEncoder());
     }
 
     @Bean
     PasswordEncoder passwordEncoder() {
-
         return new BCryptPasswordEncoder(8);
-
     }
-
 }
